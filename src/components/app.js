@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash'; // let's give it a shot
-import { tag } from '../helpers/taggedTemplateLiteral';
-
+import Input from './Input';
+import SearchResults from './SearchResults';
+import BrewerySelected from './BrewerySelected';
 import { searchForBreweries, setSelectedBrewery } from '../actions/Breweries.Actions';
 
+console.log('🍻 Cheers!');
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { searchStr: '' };
     this.handleOnChange = this.handleOnChange.bind(this);
-    this.renderSearchResults = this.renderSearchResults.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     this.debouncedSearch = _.debounce(this.debouncedSearch, 300).bind(this);
   }
 
@@ -31,65 +33,18 @@ class App extends Component {
     this.props.setSelectedBrewery(brewery);
   }
 
-  renderSearchResults() {
-    return this.props.breweriesList.map(brewery => (
-      <div
-        key={brewery.id}
-        role="button"
-        onKeyPress={(e) => { if (e.keyCode === 13) this.handleSelect(brewery); }}
-        onClick={() => this.handleSelect(brewery)}>
-        {brewery.name}
-      </div>
-    ));
-  }
-
-  renderGoogleMapsLink(brewerySelected) {
-    const {
-      name,
-      street,
-      city,
-      state,
-      latitude,
-      longitude
-    } = brewerySelected;
-    const concatonatedStr = `${name}, ${street}, ${city}, ${state}/@${latitude},${longitude}`;
-    const splitJoinStr = concatonatedStr.split(' ').join('+');
-    const googleUrl = `https://www.google.com/maps/search/${splitJoinStr}`;
-    return <a href={googleUrl} rel="noopener noreferrer" target="_blank">Google Map</a>;
-  }
-
 
   render() {
     const { brewerySelected, breweriesList } = this.props;
     const shouldRenderSearchResults = breweriesList && this.state.searchStr;
-    console.log(brewerySelected);
     return (
-      <div>
-        <input
+      <div className="flex column items-center">
+        <Input
           value={this.state.searchStr}
           placeholder="Type a brewery name"
           onChange={this.handleOnChange} />
-        {shouldRenderSearchResults && this.renderSearchResults()}
-        <div>
-          {brewerySelected ?
-            <div>
-              <div className="flex">
-                <div className="bold ">{brewerySelected.name}</div>
-                <div>{tag`(${brewerySelected.brewery_type})`}</div>
-              </div>
-              <div>{brewerySelected.street}</div>
-              <div className="flex">
-                <div>{tag`${brewerySelected.city},\u00A0`}</div>
-                <div>{tag`${brewerySelected.state},\u00A0`}</div>
-                <div>{tag`${brewerySelected.postal_code},\u00A0`}</div>
-                <div>{brewerySelected.country}}</div>
-              </div>
-              <div>{tag`Geo Coordinates: ${brewerySelected.latitude}/${brewerySelected.longitude}`}</div>
-              {this.renderGoogleMapsLink(brewerySelected)}
-            </div> :
-            <div>No brewery selected.</div>
-          }
-        </div>
+        {shouldRenderSearchResults && <SearchResults handleSelect={this.handleSelect} breweriesList={breweriesList} />}
+        <BrewerySelected brewerySelected={brewerySelected} />
       </div>
     );
   }

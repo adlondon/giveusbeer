@@ -1,0 +1,48 @@
+.mw-32 {
+  width: 100%;
+  max-width: 32rem;
+}
+
+.input,
+.search-results {
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.input {
+  width: 100%;
+  max-width: 30.25rem;
+  margin-top: 3rem;
+  padding: .75rem;
+  border: 1px solid #dae1e7;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+}
+
+.search-results {
+  padding: .75rem;
+  background-color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #dae1e7;
+  }
+}
+
+.search-results-wrapper {
+  position: absolute;
+  border: 1px solid #dae1e7;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #606f7b;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #606f7b;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #606f7b;
+}

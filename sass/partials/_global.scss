@@ -2,8 +2,22 @@
   display: flex;
 }
 
-.input {
-  color: "#606f7b";
-  border-radius: '.25rem';
-  padding: '1rem';
+.items-center {
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a {
+  color: white;
+}
+
+* {
+  font-family: Montserrat, sans-serif;
 }

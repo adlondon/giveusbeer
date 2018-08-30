@@ -3,7 +3,101 @@
   display: -ms-flexbox;
   display: flex; }
 
+.items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.bold {
+  font-weight: bold; }
+
+a {
+  color: white; }
+
+* {
+  font-family: Montserrat, sans-serif; }
+
+.mw-32 {
+  width: 100%;
+  max-width: 32rem; }
+
+.input,
+.search-results {
+  font-size: 1rem;
+  font-weight: 100; }
+
 .input {
-  color: "#606f7b";
-  border-radius: '.25rem';
-  padding: '1rem'; }
+  width: 100%;
+  max-width: 30.25rem;
+  margin-top: 3rem;
+  padding: .75rem;
+  border: 1px solid #dae1e7;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  margin-bottom: 1rem; }
+
+.search-results {
+  padding: .75rem;
+  background-color: white;
+  cursor: pointer; }
+  .search-results:hover {
+    background-color: #dae1e7; }
+
+.search-results-wrapper {
+  position: absolute;
+  border: 1px solid #dae1e7; }
+
+::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #606f7b;
+  opacity: 1;
+  /* Firefox */ }
+
+:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #606f7b;
+  opacity: 1;
+  /* Firefox */ }
+
+::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #606f7b;
+  opacity: 1;
+  /* Firefox */ }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #606f7b;
+  opacity: 1;
+  /* Firefox */ }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #606f7b; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #606f7b; }
+
+.no-brewery-selected {
+  padding: 1rem;
+  background-color: #dae1e7;
+  border-radius: .25rem;
+  color: #b8c2cc; }
+
+.brewery-selected {
+  padding: .75rem;
+  background-color: #38c172;
+  border-radius: .25rem;
+  color: white;
+  font-weight: 100; }
+  .brewery-selected .brewery-name {
+    font-weight: 700;
+    margin-bottom: .25rem; }
