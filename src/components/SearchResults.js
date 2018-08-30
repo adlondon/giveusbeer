@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchResults = props => (
   <div className="mw-32">
-    <div className="search-results-wrapper mw-32">
+    <div className="flex column search-results-wrapper mw-32">
       {props.breweriesList.map(brewery => (
         <div
           className="search-results"

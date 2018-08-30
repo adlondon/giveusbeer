@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-center {
   align-items: center;
 }
@@ -12,6 +16,11 @@
 
 .bold {
   font-weight: bold;
+}
+
+
+.w-100 {
+  width: 100%;
 }
 
 a {

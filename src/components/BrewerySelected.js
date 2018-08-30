@@ -13,11 +13,11 @@ const BrewerySelected = (props) => {
             <div>{tag`(${brewerySelected.brewery_type})`}</div>
           </div>
           <div>{brewerySelected.street}</div>
-          <div className="flex">
+          <div className="flex flex-wrap">
             <div>{tag`${brewerySelected.city},\u00A0`}</div>
             <div>{tag`${brewerySelected.state},\u00A0`}</div>
             <div>{tag`${brewerySelected.postal_code},\u00A0`}</div>
-            <div>{brewerySelected.country}}</div>
+            <div>{brewerySelected.country}</div>
           </div>
           <div>{tag`Geo Coordinates: ${brewerySelected.latitude}/${brewerySelected.longitude}`}</div>
           <GoogleMapsLink brewerySelected={brewerySelected} />
