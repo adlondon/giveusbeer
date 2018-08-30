@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash'; // let's give it a shot
+import { tag } from '../helpers/taggedTemplateLiteral';
 
 import { searchForBreweries, setSelectedBrewery } from '../actions/Breweries.Actions';
 
@@ -74,16 +75,16 @@ class App extends Component {
             <div>
               <div className="flex">
                 <div className="bold ">{brewerySelected.name}</div>
-                <div>{`(${brewerySelected.brewery_type})`}</div>
+                <div>{tag`(${brewerySelected.brewery_type})`}</div>
               </div>
               <div>{brewerySelected.street}</div>
               <div className="flex">
-                <div>{`${brewerySelected.city},\u00A0`}</div>
-                <div>{`${brewerySelected.state},\u00A0`}</div>
-                <div>{`${brewerySelected.postal_code},\u00A0`}</div>
+                <div>{tag`${brewerySelected.city},\u00A0`}</div>
+                <div>{tag`${brewerySelected.state},\u00A0`}</div>
+                <div>{tag`${brewerySelected.postal_code},\u00A0`}</div>
                 <div>{brewerySelected.country}}</div>
               </div>
-              <div>{`Geo Coordinates: ${brewerySelected.latitude || ''}/${brewerySelected.latitude || ''}`}</div>
+              <div>{tag`Geo Coordinates: ${brewerySelected.latitude}/${brewerySelected.longitude}`}</div>
               {this.renderGoogleMapsLink(brewerySelected)}
             </div> :
             <div>No brewery selected.</div>
